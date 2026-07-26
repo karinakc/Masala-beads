@@ -8,6 +8,7 @@ if (process.platform !== "linux" || process.arch !== "x64") {
 }
 
 const nativePackages = [
+  ["@tailwindcss/oxide-linux-x64-gnu", "4.2.4"],
   ["lightningcss-linux-x64-gnu", "1.32.0"],
   ["@rolldown/binding-linux-x64-gnu", "1.0.3"],
 ];
