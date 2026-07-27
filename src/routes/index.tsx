@@ -887,6 +887,38 @@ function GetTheLook() {
     { x: 78, y: 70, name: "Terracotta Sandals", price: "Rs. 9,200" },
   ];
   const [active, setActive] = useState<number | null>(null);
+  const activeHotspot = active === null ? null : hotspots[active];
+
+  const getHotspotCardStyle = (hotspot: (typeof hotspots)[number]): CSSProperties => {
+    const base: CSSProperties = {
+      background: "var(--color-ivory)",
+      top: `${hotspot.y}%`,
+      width: "min(13rem, calc(100% - 1.5rem))",
+    };
+
+    if (hotspot.x > 68) {
+      return {
+        ...base,
+        right: `${100 - hotspot.x + 5}%`,
+        transform: "translateY(-50%)",
+      };
+    }
+
+    if (hotspot.x < 32) {
+      return {
+        ...base,
+        left: `${hotspot.x + 5}%`,
+        transform: "translateY(-50%)",
+      };
+    }
+
+    return {
+      ...base,
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+    };
+  };
+
   return (
     <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
@@ -925,17 +957,19 @@ function GetTheLook() {
                       {i + 1}
                     </span>
                   </span>
-                  {active === i && (
-                    <div className="absolute left-8 top-0 w-52 p-3 text-left shadow-xl animate-fade-up"
-                         style={{ background: "var(--color-ivory)" }}>
-                      <p className="serif text-sm leading-tight">{h.name}</p>
-                      <p className="text-xs mt-1" style={{ color: "var(--color-maroon)" }}>{h.price}</p>
-                      <p className="text-[10px] mt-2 tracking-[0.2em] uppercase link-underline"
-                         style={{ color: "var(--color-terracotta)" }}>Add to bag →</p>
-                    </div>
-                  )}
                 </button>
               ))}
+              {activeHotspot && (
+                <div
+                  className="pointer-events-none absolute z-20 p-3 text-left shadow-xl animate-fade-up"
+                  style={getHotspotCardStyle(activeHotspot)}
+                >
+                  <p className="serif text-sm leading-tight break-words">{activeHotspot.name}</p>
+                  <p className="text-xs mt-1" style={{ color: "var(--color-maroon)" }}>{activeHotspot.price}</p>
+                  <p className="text-[10px] mt-2 tracking-[0.2em] uppercase link-underline"
+                     style={{ color: "var(--color-terracotta)" }}>Add to bag →</p>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>
