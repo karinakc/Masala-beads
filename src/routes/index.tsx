@@ -814,8 +814,8 @@ function Counter({ value, suffix = "", label }: { value: number; suffix?: string
     return () => io.disconnect();
   }, [value]);
   return (
-    <div ref={ref}>
-      <p className="serif text-4xl md:text-5xl" style={{ color: "var(--color-maroon)" }}>
+    <div ref={ref} className="min-w-0">
+      <p className="serif whitespace-nowrap text-[clamp(2rem,7.8vw,3rem)] leading-none" style={{ color: "var(--color-maroon)" }}>
         {n.toLocaleString()}{suffix}
       </p>
       <p className="mt-2 text-[11px] tracking-[0.24em] uppercase text-muted-foreground">{label}</p>
@@ -858,7 +858,7 @@ function Story() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-2 gap-8 max-w-md">
+          <div className="mt-12 grid max-w-md grid-cols-2 gap-x-5 gap-y-10 sm:gap-8">
             <Counter value={29} suffix="+" label="years crafting" />
             <Counter value={150000} suffix="+" label="hands served" />
             <Counter value={5} label="stores in nepal" />
