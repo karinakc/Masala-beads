@@ -1167,26 +1167,26 @@ function Footer() {
   return (
     <footer className="pt-24 pb-10" style={{ background: "var(--color-espresso)", color: "var(--color-ivory)" }}>
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
+          <div className="min-w-0 lg:col-span-2">
+            <div className="flex flex-wrap items-center gap-3">
               <img
                 src={masalaLogo}
                 alt="Masala Beads"
-                className="h-16 w-16 object-contain mix-blend-screen"
+                className="h-14 w-14 object-contain mix-blend-screen sm:h-16 sm:w-16"
               />
-              <div>
-                <p className="serif text-2xl" style={{ color: "var(--color-ivory)" }}>Masala Beads</p>
-                <p className="script text-xl" style={{ color: "var(--color-blush)" }}>since 1997, Kathmandu</p>
+              <div className="min-w-0">
+                <p className="serif text-[clamp(1.55rem,7vw,1.8rem)] leading-none" style={{ color: "var(--color-ivory)" }}>Masala Beads</p>
+                <p className="script text-[clamp(1.05rem,5.5vw,1.25rem)] leading-snug" style={{ color: "var(--color-blush)" }}>since 1997, Kathmandu</p>
               </div>
             </div>
-            <p className="mt-6 text-sm opacity-75 max-w-sm leading-relaxed">
-              A boutique of handmade jewelry, bags, home décor, cosmetics and stationery.
+            <p className="mt-6 max-w-sm break-words text-sm leading-relaxed opacity-75">
+              A boutique of handmade jewelry, bags, home decor, cosmetics and stationery.
               Made in Nepal, shipped with care around the world.
             </p>
-            <div className="mt-6 flex gap-3">
+            <div className="mt-6 flex max-w-full flex-wrap gap-2 sm:gap-3">
               {["eSewa", "Fonepay", "Visa", "Mastercard", "COD"].map((p) => (
-                <span key={p} className="text-[10px] tracking-[0.2em] uppercase px-2.5 py-1 border border-ivory/25"
+                <span key={p} className="border border-ivory/25 px-2.5 py-1 text-[9px] uppercase tracking-[0.18em] sm:text-[10px] sm:tracking-[0.2em]"
                       style={{ borderColor: "color-mix(in oklab, var(--ivory) 25%, transparent)" }}>
                   {p}
                 </span>
@@ -1197,7 +1197,7 @@ function Footer() {
           <div>
             <p className="label-small mb-4" style={{ color: "var(--color-blush)" }}>Shop</p>
             <ul className="space-y-2 text-sm opacity-90">
-              {["Jewelry", "Bags", "Home Décor", "Cosmetics", "Stationery", "Gifts", "Sale"].map((x) => (
+              {["Jewelry", "Bags", "Home Decor", "Cosmetics", "Stationery", "Gifts", "Sale"].map((x) => (
                 <li key={x}><a href="#" className="link-underline">{x}</a></li>
               ))}
             </ul>
@@ -1225,7 +1225,7 @@ function Footer() {
 
         <div className="mt-16 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4"
              style={{ borderColor: "color-mix(in oklab, var(--ivory) 15%, transparent)" }}>
-          <p className="text-xs opacity-60">© 2026 Masala Beads · Handmade in Nepal</p>
+          <p className="text-center text-xs opacity-60 sm:text-left">© 2026 Masala Beads · Handmade in Nepal</p>
           <p className="script text-2xl" style={{ color: "var(--color-blush)" }}>with love, from Kathmandu</p>
           <div className="flex gap-4 text-xs opacity-60">
             <a href="#" className="link-underline">Privacy</a>
