@@ -943,11 +943,16 @@ function GetTheLook() {
               {hotspots.map((h, i) => (
                 <button
                   key={i}
-                  onMouseEnter={() => setActive(i)}
-                  onMouseLeave={() => setActive(null)}
+                  onPointerEnter={(event) => {
+                    if (event.pointerType === "mouse") setActive(i);
+                  }}
+                  onPointerLeave={(event) => {
+                    if (event.pointerType === "mouse") setActive(null);
+                  }}
                   onClick={() => setActive(active === i ? null : i)}
                   className="absolute -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${h.x}%`, top: `${h.y}%` }}
+                  aria-label={`View ${h.name}`}
                 >
                   <span className="relative flex h-6 w-6">
                     <span className="absolute inset-0 rounded-full animate-ping opacity-60"
