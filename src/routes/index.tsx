@@ -407,6 +407,184 @@ function Hero() {
   );
 }
 
+function HeroCarousel() {
+  const heroCards = [
+    { label: "Jewelry", image: catJewelry, href: "#jewelry" },
+    { label: "Bags", image: catBags, href: "#bags" },
+    { label: "Stationery", image: catStationery, href: "#stationery" },
+    { label: "Gifts", image: bottle, href: "#gifts" },
+  ];
+  const heroFloaters = [
+    {
+      image: bottle,
+      className: "left-[7%] top-[34%] w-24 xl:left-[10%] xl:w-28",
+      imageClassName: "rounded-[1.7rem]",
+      rotate: "-12deg",
+      driftX: "14px",
+      driftY: "-18px",
+      duration: 5.8,
+      delay: -0.6,
+    },
+    {
+      image: necklace,
+      className: "right-[11%] top-[27%] w-28 xl:right-[14%] xl:w-32",
+      imageClassName: "rounded-[1.7rem]",
+      rotate: "13deg",
+      driftX: "-16px",
+      driftY: "14px",
+      duration: 6.4,
+      delay: -1.8,
+    },
+    {
+      image: preloaderImage,
+      className: "left-[14%] top-[12%] w-28 opacity-70 xl:left-[19%] xl:w-32",
+      imageClassName: "object-contain",
+      rotate: "8deg",
+      driftX: "-12px",
+      driftY: "16px",
+      duration: 7.2,
+      delay: -2.4,
+    },
+    {
+      image: keychain,
+      className: "right-[7%] top-[13%] w-24 xl:right-[10%] xl:w-28",
+      imageClassName: "rounded-[1.7rem]",
+      rotate: "-9deg",
+      driftX: "18px",
+      driftY: "-12px",
+      duration: 6.1,
+      delay: -3.1,
+    },
+  ];
+
+  return (
+    <section
+      className="relative overflow-hidden px-4 pb-8 pt-[100px] sm:px-6 sm:pb-10 sm:pt-[104px] lg:px-10"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--color-ivory) 0%, var(--color-cream) 54%, color-mix(in oklab, var(--color-blush) 18%, var(--color-cream)) 100%)",
+      }}
+    >
+      <div className="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden lg:block" aria-hidden="true">
+        {heroFloaters.map((item, i) => (
+          <div
+            key={i}
+            className={`absolute aspect-square ${item.className}`}
+            style={{
+              "--hero-rotate": item.rotate,
+              "--hero-drift-x": item.driftX,
+              "--hero-drift-y": item.driftY,
+              animation: `hero-float-showcase ${item.duration}s ease-in-out ${item.delay}s infinite`,
+              transformStyle: "preserve-3d",
+              filter: "drop-shadow(0 26px 28px rgba(92, 47, 60, 0.16))",
+            } as CSSProperties}
+          >
+            <img
+              src={item.image}
+              alt=""
+              className={`h-full w-full ${item.imageClassName.includes("object-contain") ? "" : "object-cover"} ${item.imageClassName}`}
+              style={{
+                transform: "translateZ(28px)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-104px)] max-w-[1500px] flex-col items-center justify-start">
+        <div className="relative z-10 mx-auto max-w-3xl text-center">
+          <div className="mb-1 flex items-center justify-center gap-8 text-xl sm:text-2xl" style={{ color: "var(--color-rose)" }}>
+            <span aria-hidden="true">*</span>
+            <p className="script">New Collection</p>
+            <span aria-hidden="true">*</span>
+          </div>
+          <h1
+            className="serif text-[clamp(2.85rem,5.45vw,5rem)] leading-[0.94] tracking-[-0.03em]"
+            style={{ color: "var(--color-maroon)" }}
+          >
+            Little things
+            <br />
+            you'll love a lot.
+          </h1>
+          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed sm:text-base" style={{ color: "var(--color-espresso)" }}>
+            Cute accessories, thoughtful gifts and everyday finds made to brighten your style.
+          </p>
+          <a href="#new" className="btn-primary mx-auto mt-5 justify-center px-9">
+            Shop new arrivals
+          </a>
+        </div>
+
+        <div className="relative mt-6 w-full max-w-[1180px] sm:mt-7">
+          <div
+            className="relative overflow-hidden rounded-[2rem] border shadow-[0_26px_80px_-54px_rgba(62,37,45,0.5)] sm:rounded-[3rem]"
+            style={{
+              borderColor: "color-mix(in oklab, var(--color-rose) 16%, transparent)",
+              background: "var(--color-ivory)",
+            }}
+          >
+            <img
+              src={hero}
+              alt="Masala Beads accessories styled on soft fabric"
+              className="h-[330px] w-full object-cover sm:h-[400px] lg:h-[480px]"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, color-mix(in oklab, var(--color-ivory) 8%, transparent) 0%, transparent 62%, color-mix(in oklab, var(--color-blush) 14%, transparent) 100%)",
+              }}
+            />
+          </div>
+
+          <div className="relative z-10 mx-auto -mt-16 grid max-w-[760px] grid-cols-2 gap-3 sm:-mt-24 sm:grid-cols-4 sm:gap-5">
+            {heroCards.map((card) => (
+              <a
+                key={card.label}
+                href={card.href}
+                className="group overflow-hidden rounded-2xl border p-3 text-center shadow-[0_18px_44px_-28px_rgba(62,37,45,0.42)] transition-transform hover:-translate-y-1"
+                style={{
+                  background: "color-mix(in oklab, var(--color-ivory) 93%, var(--color-blush))",
+                  borderColor: "color-mix(in oklab, var(--color-rose) 16%, transparent)",
+                }}
+              >
+                <div className="mx-auto aspect-square w-20 overflow-hidden rounded-xl sm:w-24">
+                  <img
+                    src={card.image}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <p className="serif mt-3 text-xl leading-none" style={{ color: "var(--color-maroon)" }}>
+                  {card.label}
+                </p>
+                <p className="mt-2 text-[11px] font-medium" style={{ color: "var(--color-rose)" }}>
+                  Shop Now <span aria-hidden="true">-&gt;</span>
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <style>{`
+        @keyframes hero-float-showcase {
+          0%, 100% {
+            transform: perspective(900px) translate3d(0, 0, 0) rotate(var(--hero-rotate)) rotateX(8deg) rotateY(-10deg) scale(1);
+          }
+          50% {
+            transform: perspective(900px) translate3d(var(--hero-drift-x), var(--hero-drift-y), 34px) rotate(calc(var(--hero-rotate) + 4deg)) rotateX(15deg) rotateY(9deg) scale(1.035);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          [style*="hero-float-showcase"] {
+            animation: none !important;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
 /* --------------------------- Reveal helper --------------------------- */
 
 function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -1166,15 +1344,15 @@ function ConceptCredit() {
       className="relative overflow-hidden px-6 py-20 sm:py-24 lg:px-10 lg:py-32"
       style={{
         background:
-          "linear-gradient(180deg, var(--color-cream) 0%, color-mix(in oklab, var(--color-blush) 42%, var(--color-ivory)) 100%)",
+          "linear-gradient(180deg, var(--color-ivory) 0%, var(--color-cream) 58%, color-mix(in oklab, var(--color-blush) 18%, var(--color-cream)) 100%)",
         color: "var(--color-maroon)",
       }}
     >
       <div
-        className="pointer-events-none absolute inset-0 opacity-45"
+        className="pointer-events-none absolute inset-0 opacity-35"
         style={{
           background:
-            "radial-gradient(circle at 82% 14%, color-mix(in oklab, var(--color-rose) 18%, transparent) 0%, transparent 32%), radial-gradient(circle at 10% 90%, color-mix(in oklab, var(--color-blush-deep) 14%, transparent) 0%, transparent 34%)",
+            "radial-gradient(circle at 82% 14%, color-mix(in oklab, var(--color-rose) 8%, transparent) 0%, transparent 34%), radial-gradient(circle at 10% 90%, color-mix(in oklab, var(--color-blush-deep) 7%, transparent) 0%, transparent 36%)",
         }}
       />
       <div className="relative mx-auto flex min-h-[560px] max-w-[1200px] flex-col justify-between gap-16">
@@ -1360,11 +1538,10 @@ function Home() {
     <div className="min-h-screen">
       <Preloader />
       <div className="fixed top-0 left-0 right-0 z-50">
-        <Announcement />
         <Header />
       </div>
       <main>
-        <Hero />
+        <HeroCarousel />
         <ShopByMood />
         <CategoryAtlas />
         <Bestsellers />
