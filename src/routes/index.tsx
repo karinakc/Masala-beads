@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, MouseEvent } from "react";
-import { Search, Heart, ShoppingBag, ChevronRight, ArrowUpRight, Menu, X, Instagram, MapPin } from "lucide-react";
+import { Search, Heart, ShoppingBag, ChevronRight, ArrowUpRight, Menu, X, Instagram, MapPin, Globe, Mail } from "lucide-react";
 
 import hero from "@/assets/hero.jpg";
 import masalaLogo from "@/assets/logo.jpg";
@@ -1158,6 +1158,68 @@ function Newsletter() {
   );
 }
 
+/* --------------------------- Concept Credit --------------------------- */
+
+function ConceptCredit() {
+  return (
+    <section
+      className="relative overflow-hidden px-6 py-20 sm:py-24 lg:px-10 lg:py-32"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--color-cream) 0%, color-mix(in oklab, var(--color-blush) 42%, var(--color-ivory)) 100%)",
+        color: "var(--color-maroon)",
+      }}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-45"
+        style={{
+          background:
+            "radial-gradient(circle at 82% 14%, color-mix(in oklab, var(--color-rose) 18%, transparent) 0%, transparent 32%), radial-gradient(circle at 10% 90%, color-mix(in oklab, var(--color-blush-deep) 14%, transparent) 0%, transparent 34%)",
+        }}
+      />
+      <div className="relative mx-auto flex min-h-[560px] max-w-[1200px] flex-col justify-between gap-16">
+        <div className="max-w-3xl">
+          <p
+            className="text-[10px] font-semibold uppercase tracking-[0.32em] sm:text-xs sm:tracking-[0.42em]"
+            style={{ color: "color-mix(in oklab, var(--color-maroon) 48%, var(--color-rose))" }}
+          >
+            Prepared exclusively for Masala Beads Nepal by Triovate Labs
+          </p>
+          <h2
+            className="mt-10 max-w-[860px] text-[clamp(2.35rem,7.2vw,5.45rem)] font-semibold leading-[1.08] tracking-[-0.03em]"
+            style={{ color: "var(--color-maroon)" }}
+          >
+            We created this concept to show how Masala Beads' digital presence
+            could evolve into a complete, story-led shopping experience.
+          </h2>
+          <a
+            href="mailto:triovatelabs@gmail.com?subject=Masala%20Beads%20website%20concept"
+            className="mt-10 inline-flex w-full items-center justify-center gap-3 px-7 py-5 text-[12px] font-bold uppercase tracking-[-0.01em] transition-colors sm:w-auto sm:px-10 sm:text-sm"
+            style={{ background: "var(--color-maroon)", color: "var(--color-ivory)" }}
+          >
+            Discuss the full experience
+            <ArrowUpRight className="h-4 w-4" strokeWidth={2.4} />
+          </a>
+        </div>
+
+        <div
+          className="flex flex-col gap-4 text-sm font-semibold sm:flex-row sm:flex-wrap sm:gap-8"
+          style={{ color: "color-mix(in oklab, var(--color-maroon) 70%, var(--color-rose))" }}
+        >
+          <a href="https://triovatelabs.com" className="inline-flex min-w-0 items-center gap-3 hover:opacity-75">
+            <Globe className="h-4 w-4 shrink-0" strokeWidth={1.8} />
+            <span className="truncate">triovatelabs.com</span>
+          </a>
+          <a href="mailto:triovatelabs@gmail.com" className="inline-flex min-w-0 items-center gap-3 hover:opacity-75">
+            <Mail className="h-4 w-4 shrink-0" strokeWidth={1.8} />
+            <span className="truncate">triovatelabs@gmail.com</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* --------------------------- Footer --------------------------- */
 
 function Footer() {
@@ -1311,6 +1373,7 @@ function Home() {
         <Press />
         <InstaGrid />
         <Newsletter />
+        <ConceptCredit />
       </main>
       <Footer />
     </div>
